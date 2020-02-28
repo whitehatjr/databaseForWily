@@ -84,7 +84,12 @@ export default class TransactionScreen extends React.Component {
     })
 
     //change book status
-    db.collection("books").doc(this.state.scannedStudentId).update({
+    db.collection("books").doc(this.state.scannedBookId).update({
+      'bookAvailability' : true
+    })
+
+    //change book status
+    db.collection("students").doc(this.state.scannedStudentId).update({
       'numberOfBooksIssued' : firebase.firestore.FieldValue.increment(-1)
     })
 
@@ -145,11 +150,6 @@ export default class TransactionScreen extends React.Component {
         <TextInput
           style={styles.inputBox}
           placeholder="Book Id"
-          onChangeText={(text)=>{
-            this.setState({
-              scannedBookId: text
-            })
-          }}
           value={this.state.scannedBookId}/>
         <TouchableOpacity
           style={styles.scanButton}
@@ -164,11 +164,6 @@ export default class TransactionScreen extends React.Component {
         <TextInput
           style={styles.inputBox}
           placeholder="Student Id"
-          onChangeText={(text)=>{
-            this.setState({
-              scannedStudentId: text
-            })
-          }}
           value={this.state.scannedStudentId}/>
         <TouchableOpacity
           style={styles.scanButton}
