@@ -102,14 +102,14 @@ export default class TransactionScreen extends React.Component {
       if(book.bookAvailability){
         this.initiateBookIssue();
         transactionMessage = "Book Issued"
-        // ToastAndroid.show(transactionMessage, ToastAndroid.SHORT);
-        Alert.alert(transactionMessage)
+        ToastAndroid.show(transactionMessage, ToastAndroid.SHORT);
+        // Alert.alert(transactionMessage)
       }
       else{
         this.initiateBookReturn();
         transactionMessage = "Book Returned"
-        // ToastAndroid.show(transactionMessage, ToastAndroid.SHORT);
-        Alert.alert(transactionMessage)
+        ToastAndroid.show(transactionMessage, ToastAndroid.SHORT);
+        // Alert.alert(transactionMessage)
       }
     })
 
