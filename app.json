@@ -1,7 +1,7 @@
 {
   "expo": {
-    "name": "test",
-    "slug": "test",
+    "name": "Database for Willy",
+    "slug": "databse-for-willy",
     "privacy": "public",
     "sdkVersion": "36.0.0",
     "platforms": [

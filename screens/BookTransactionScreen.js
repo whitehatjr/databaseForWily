@@ -1,5 +1,5 @@
 import React from 'react';
-import { Text, View, TouchableOpacity, TextInput, Image, StyleSheet, KeyboardAvoidingView, Alert,ToastAndroid } from 'react-native';
+import { Text, View, TouchableOpacity, TextInput, Image, StyleSheet} from 'react-native';
 import * as Permissions from 'expo-permissions';
 import { BarCodeScanner } from 'expo-barcode-scanner';
 import firebase from 'firebase';
@@ -107,14 +107,10 @@ export default class TransactionScreen extends React.Component {
       if(book.bookAvailability){
         this.initiateBookIssue();
         transactionMessage = "Book Issued"
-        ToastAndroid.show(transactionMessage, ToastAndroid.SHORT);
-        // Alert.alert(transactionMessage)
       }
       else{
         this.initiateBookReturn();
         transactionMessage = "Book Returned"
-        ToastAndroid.show(transactionMessage, ToastAndroid.SHORT);
-        // Alert.alert(transactionMessage)
       }
     })
 
@@ -139,7 +135,7 @@ export default class TransactionScreen extends React.Component {
 
     else if (buttonState === "normal"){
       return(
-        <KeyboardAvoidingView behavior="padding" style={styles.container}>
+        <View style={styles.container}>
         <View>
           <Image
             source = {require("../assets/booklogo.jpg")}
@@ -181,7 +177,7 @@ export default class TransactionScreen extends React.Component {
           }}>
           <Text style={styles.submitButtonText}>Submit</Text>
         </TouchableOpacity>
-      </KeyboardAvoidingView>
+      </View>
       )
     }
   }
