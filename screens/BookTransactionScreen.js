@@ -52,10 +52,10 @@ export default class TransactionScreen extends React.Component {
 
   initiateBookIssue = async ()=>{
     //add a transaction
-    db.collection("transaction").add({
+    db.collection("transactions").add({
       'studentId' : this.state.scannedStudentId,
       'bookId' : this.state.scannedBookId,
-      'data' : firebase.firestore.Timestamp.now().toDate(),
+      'date' : firebase.firestore.Timestamp.now().toDate(),
       'transactionType' : "Issue"
     })
 
@@ -65,7 +65,7 @@ export default class TransactionScreen extends React.Component {
     })
     //change number of issued books for student
     db.collection("students").doc(this.state.scannedStudentId).update({
-      'numberOfBooksIssued' : firebase.firestore.FieldValue.increment(1)
+      'numberOfBookIssued' : firebase.firestore.FieldValue.increment(1)
     })
 
     this.setState({
@@ -90,7 +90,7 @@ export default class TransactionScreen extends React.Component {
 
     //change book status
     db.collection("students").doc(this.state.scannedStudentId).update({
-      'numberOfBooksIssued' : firebase.firestore.FieldValue.increment(-1)
+      'numberOfBookIssued' : firebase.firestore.FieldValue.increment(-1)
     })
 
     this.setState({
